@@ -1,0 +1,29 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="imu.sitecontent">
+<body>
+
+<metal:main fill-slot="content-core">
+  <metal:content-core define-macro="content-core">
+    
+    <h2>Das sagen unsere Kunden &uuml;ber uns:</h2>
+    
+    <tal:block tal:condition="view/testimonials">
+        <div tal:repeat="quote view/testimonials" class="quoteItem">
+            <h3>
+                <span tal:replace="quote/customer" />, <span tal:replace="quote/position" />
+            </h3>
+            <p class="callout">&quot;<span tal:replace="quote/quote" />&quot;</p>
+        </div>
+    </tal:block>
+    
+  </metal:content-core>
+</metal:main>
+
+</body>
+</html>
+

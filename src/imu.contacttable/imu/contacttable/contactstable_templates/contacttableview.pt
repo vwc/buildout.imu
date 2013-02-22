@@ -1,0 +1,59 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="imu.contacttable">
+<body>
+<metal:main fill-slot="content-core">
+    <tal:main-macro metal:define-macro="content-core">
+        <tal:block tal:condition="view/haveSglContacts">
+        <tal:thumbs tal:define="rows view/contacts">
+            <tal:slices tal:repeat="row rows">
+                <div class="contactRow row">
+                    <tal:block tal:repeat="slice row">
+                        <div class="contactItem"
+                            tal:define="counter repeat/slice/index;
+                                        is_first python:counter == 0;
+                                        sep python:is_first and ' ' or ':2';
+                                        item slice/item"
+                            tal:attributes="class string:contactItem cell position-${counter}${sep} width-1:2">
+                            <div class="contactName">
+                                <a tal:attributes="href item/getURL">
+                                    <h3>
+					<span tal:content="item/tTitle" />
+					<span tal:content="item/vTitle" />
+         				<span tal:content="item/title" />
+	 			    </h3>
+                                </a>
+                                <p tal:content="item/Description" />
+                            </div>
+                            <div class="contactDetail" tal:define="item_obj item/getObject">
+                                <div class="sglPhone">
+                                    <p>Tel.: 
+                                     <span tal:replace="item_obj/phone" />
+                                     </p>
+                                </div>
+
+                                <p>E-Mail: 
+                                <span class="sglEmail">
+                                    <a href="" tal:define="email item_obj/email" tal:attributes="href string:mailto:$email" tal:content="email">Email</a>
+                                </span>
+                                </p>
+
+                            </div>
+                        </div>
+                    </tal:block>
+                    <div class="visualClear"><!-- --></div>
+                </div>
+            </tal:slices>
+
+        </tal:thumbs>
+        </tal:block>
+        
+    </tal:main-macro>
+</metal:main>
+
+</body>
+</html>

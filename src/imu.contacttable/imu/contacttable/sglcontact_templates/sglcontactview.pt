@@ -1,0 +1,49 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="imu.contacttable">
+<body>
+<metal:main fill-slot="main">
+    <tal:main-macro metal:define-macro="main">
+        <div tal:replace="structure provider:plone.abovecontentbody" />
+    <div id="content-core">
+    <tal:block>
+        <div class="documentTitle">
+            <h1><span tal:content="context/tTitle" />
+	 	<span tal:content="context/vTitle" />
+         	<span tal:content="context/title" />
+	    </h1>
+        </div>
+        <div class="contactDescription">
+            <p><b tal:content="context/Description">Subtitle</b></p>        
+        </div>
+        <div id="contact-block" class="row">
+            <div id="contact-picture" class="cell width-1:3 position-0">
+                <img tal:condition="context/image | nothing"
+                     tal:replace="structure context/@@images/image/mini" />
+            </div>
+            <div id="contact-dates" class="cell width-2:3 position-1:3">
+                <div tal:content="structure context/vita" />
+                <div id="detail-block">
+                <p><b>Kontakt</b></p>
+                <p tal:define="phone context/phone"
+                     tal:content="string:Tel.: $phone" />
+                <p tal:condition="context/fax" tal:define="fax context/fax"
+                     tal:content="string:Fax: $fax" />
+                <p tal:condition="context/mobile" tal:define="mobile context/mobile"
+                     tal:content="string:Mobil: $mobile" />
+                <p>E-Mail: <a href="" tal:define="email context/email" tal:attributes="href string:mailto:$email" tal:content="email">Email</a></p>
+                </div>
+            </div>
+        </div>
+    <div class="visualClear"><!-- --></div>
+    </tal:block> 
+    </div>
+    </tal:main-macro>
+</metal:main>
+
+</body>
+</html>

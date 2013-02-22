@@ -1,0 +1,73 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="imu.sitecontent">
+<body>
+
+<metal:main fill-slot="main">
+  <metal:content-core define-macro="main">
+    
+    <tal:block tal:condition="view/images">
+    <div id="gallery">
+        <div id="gallery-wrapper">
+            <ul id="teaserGallery">
+                <tal:images tal:repeat="image view/images">
+                    <li tal:define="image_obj image/getObject">
+                        <img tal:define="scale image_obj/@@images;
+                                         thumbnail python:scale.scale('image', width=153, height=81, direction='keep')"
+                            tal:condition="thumbnail"
+                            tal:attributes="src thumbnail/url;
+                                            width thumbnail/width;
+                                            height thumbnail/height;
+                                            title image/Title;
+                                            alt image/Description;" />
+                        <div class="gv-panel-content">
+                            <img tal:define="scale image_obj/@@images;
+                                             picture python:scale.scale('image', width=700, height=370, direction='keep')"
+                                tal:condition="picture"
+                                tal:attributes="src picture/url;
+                                                width picture/width;
+                                                height picture/height;
+                                                title image/Title;
+                                                alt image/Description;" />
+                        </div>
+                    </li>
+                </tal:images>
+            </ul>
+            <script type="text/javascript" charset="utf-8">
+            $('#teaserGallery').galleryView({
+                gallery_width: 700,
+                gallery_height: 370,
+                panel_width: 700,
+                panel_height: 370,
+                frame_width: 153,
+                frame_height: 81,
+                show_captions: false,
+                pause_on_hover: true
+            });
+            </script>
+        </div>
+    </div>
+    </tal:block>
+    
+    <div id="intro-text">
+        <div tal:content="structure context/introduction/output" />
+    </div>
+    
+    <div id="random-quote" tal:condition="view/testimonial">
+        <div tal:define="quote view/testimonial">
+            <p id="customer-quote">&quot;<span tal:replace="quote/quote" />&quot;</p>
+            <h5 tal:content="quote/name" />
+            <p class="discreet" tal:content="quote/position" />
+        </div>
+    </div>
+    
+  </metal:content-core>
+</metal:main>
+
+</body>
+</html>
+

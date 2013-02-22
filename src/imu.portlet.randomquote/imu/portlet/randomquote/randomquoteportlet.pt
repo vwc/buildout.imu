@@ -1,0 +1,16 @@
+<dl id="portlet-random-quote"
+    tal:condition="view/available"
+    i18n:domain="imu.portlet.randomquote">
+    <dt class="portletHeader">Zitat</dt>
+    <tal:quote tal:define="quote view/random_quote">
+    <dd class="quote-box">
+        "<span tal:replace="quote/quote" />"
+    </dd>
+    <dd class="quote-source" tal:content="quote/customer">
+        Customer Name
+    </dd>
+    <dd class="quote-source-position" tal:content="quote/position">
+        Customer Position/Title
+    </dd>
+    </tal:quote>
+</dl>

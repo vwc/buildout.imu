@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<portlets>
+
+ <!-- Portlet type registrations -->
+
+ <portlet
+   addview="imu.portlet.randomquote.RandomQuotePortlet"
+   title="Testimonial Portlet"
+   description="A portlet that shows random quotes (requires imu.sitecontent)"
+   />
+
+</portlets>

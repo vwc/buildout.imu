@@ -1,0 +1,17 @@
+imu.contacttable Installation
+-----------------------------
+
+To install imu.contacttable using zc.buildout and the plone.recipe.zope2instance
+recipe to manage your project, you can do this:
+
+* Add ``imu.contacttable`` to the list of eggs to install, e.g.:
+
+    [buildout]
+    ...
+    eggs =
+        ...
+        imu.contacttable
+       
+* Re-run buildout, e.g. with:
+
+    $ ./bin/buildout
