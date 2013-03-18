@@ -5,8 +5,6 @@ from zope import schema
 from plone.namedfile.field import NamedImage
 from plone.namedfile.field import NamedBlobImage
 
-from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
-
 from plone.namedfile.interfaces import IImageScaleTraversable
 
 from imu.partnertable import MessageFactory as _
