@@ -22,8 +22,8 @@
         </div>
         <div id="contact-block" class="row">
             <div id="contact-picture" class="cell width-1:3 position-0">
-              <tal:image tal:condition="context/image">
-                <img tal:replace="structure context/@@images/image" />
+              <tal:image tal:condition="context/picture">
+                <img tal:replace="structure context/@@images/picture/mini" />
               </tal:image>
             </div>
             <div id="contact-dates" class="cell width-2:3 position-1:3">

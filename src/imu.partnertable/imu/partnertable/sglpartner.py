@@ -3,6 +3,7 @@ from plone.directives import dexterity, form
 from zope import schema
 
 from plone.namedfile.field import NamedImage
+from plone.namedfile.field import NamedBlobImage
 
 from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
 
@@ -38,6 +39,10 @@ class ISglPartner(form.Schema, IImageScaleTraversable):
     image = NamedImage(
         title=_(u"Picture"),
         description=_(u"Please upload an image"),
+        required=False,
+    )
+    picture = NamedBlobImage(
+        title=_(u"Portrait"),
         required=False,
     )
     form.widget(main="plone.app.z3cform.wysiwyg.widget.WysiwygFieldWidget")
