@@ -2,15 +2,12 @@ from five import grok
 from plone.directives import dexterity, form
 from zope import schema
 from plone.namedfile.field import NamedImage
-
-from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
+from plone.namedfile.field import NamedBlobImage
 
 from plone.namedfile.interfaces import IImageScaleTraversable
 
 from imu.contacttable import MessageFactory as _
 
-
-# Interface class; used to define content-type schema.
 
 class ISglContact(form.Schema, IImageScaleTraversable):
     """
@@ -38,6 +35,10 @@ class ISglContact(form.Schema, IImageScaleTraversable):
     image = NamedImage(
         title=_(u"Picture"),
         description=_(u"Please upload an image"),
+        required=False,
+    )
+    picture = NamedBlobImage(
+        title=_(u"Portrait Image"),
         required=False,
     )
     form.widget(vita="plone.app.z3cform.wysiwyg.widget.WysiwygFieldWidget")
