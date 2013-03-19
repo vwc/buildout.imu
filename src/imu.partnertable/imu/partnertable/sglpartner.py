@@ -2,7 +2,6 @@ from five import grok
 from plone.directives import dexterity, form
 from zope import schema
 
-from plone.namedfile.field import NamedImage
 from plone.namedfile.field import NamedBlobImage
 
 from plone.namedfile.interfaces import IImageScaleTraversable
@@ -32,11 +31,6 @@ class ISglPartner(form.Schema, IImageScaleTraversable):
     )
     description = schema.Text(
         title=_(u"Abschluss / Position"),
-        required=False,
-    )
-    image = NamedImage(
-        title=_(u"Picture"),
-        description=_(u"Please upload an image"),
         required=False,
     )
     picture = NamedBlobImage(
