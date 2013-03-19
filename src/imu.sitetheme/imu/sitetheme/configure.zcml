@@ -9,6 +9,9 @@
 
   <five:registerPackage package="." initialize=".initialize" />
 
+  <!-- Include configuration for dependencies listed in setup.py -->
+  <includeDependencies package="." />
+
   <genericsetup:registerProfile
       name="default"
       title="imu.sitetheme"
