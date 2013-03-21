@@ -32,6 +32,8 @@
 	            <link rel="shortcut icon" href="/++theme++imu.sitetheme/images/favicon.ico" type="image/x-icon" />
 	        </after>
 
+	        <after theme="/html/body"
+	        	content="//div[@data-iframe='plone-toolbar']" />
 	
 	        <!-- Copy over the id/class attributes on the body tag.
 	             This is important for per-section styling -->
