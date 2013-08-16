@@ -46,6 +46,12 @@
 	        <!-- Searchbox -->
 	        <copy attributes="action" css:content="#portal-searchbox" css:theme="#search" />
 	
+	        <!-- CMSUI Editbar replacements -->
+        	<!--<drop css:theme="#cms-toolbar"
+        	    css:if-content="#anon-personalbar" />
+        	<replace css:theme="#cms-toolbar"
+        	    css:content="#toolbar" />-->
+
 	        <!-- main navigation -->
 	        <replace css:content-children="#tree-navigation" css:theme-children="#main-nav" />
             <drop css:content=".navTreeItem img" />
